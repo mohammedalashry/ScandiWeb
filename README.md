@@ -6,7 +6,7 @@
 2. [Technologies Used](#technologies-used)
 3. [Task Requirements](#task-key-requirements)
 4. [Project Structure](#project-structure)
-5. [Design Patterns Used]
+5. [Design Patterns Used](#design-patterns-used)
 6. [API Documentation](#api-documentation)
 7. [Frontend Components](#frontend-components)
 8. [Database Schema](#database-schema)
