@@ -16,7 +16,6 @@ const AddProduct = () => {
     width: "",
     length: "",
   });
-  const [error, setError] = useState("");
 
   useEffect(() => {
     document.title = "Add Product";
@@ -24,29 +23,13 @@ const AddProduct = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
-
-    if (!isValidInput()) {
-      setError("Please, submit required data");
-      return;
-    }
 
     try {
       await addProduct(formData);
       navigate("/");
     } catch (error) {
       console.error("Error adding product:", error);
-      if (error.response && error.response.status === 400) {
-        setError("Please, provide the data of indicated type");
-      } else {
-        setError("An error occurred while adding the product");
-      }
     }
-  };
-
-  const isValidInput = () => {
-    // Implement your validation logic here
-    return formData.sku && formData.name && formData.price && formData.type;
   };
 
   return (
@@ -54,7 +37,6 @@ const AddProduct = () => {
       <header>
         <h1>Add Product</h1>
       </header>
-      {error && <div className="error">{error}</div>}
       <ProductForm
         formData={formData}
         setFormData={setFormData}
