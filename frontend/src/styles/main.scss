@@ -1,0 +1,104 @@
+@import "variables";
+@import "mixins";
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: $text-color;
+  background-color: $background-color;
+}
+
+.app {
+  max-width: calc(100vw - 120px);
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid $border-color;
+  padding-bottom: 10px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  overflow: visible !important;
+}
+
+.product-box {
+  border: 1px solid $border-color;
+  padding: 10px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: 0 8px;
+  @include box-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+
+  p {
+    margin: 5px 0;
+    align-self: center;
+  }
+  input {
+    align-self: flex-start;
+    width: 25px;
+    height: 25px;
+  }
+}
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.btn {
+  &-primary {
+    @include button-style($primary-color, $white);
+  }
+
+  &-secondary {
+    @include button-style($secondary-color, $white);
+  }
+
+  &-danger {
+    @include button-style($danger-color, $white);
+  }
+}
+
+form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 15px;
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.description {
+  font-size: 0.9em;
+  color: $text-muted;
+  margin-top: 5px;
+}

@@ -1,0 +1,23 @@
+@mixin button-style($bg-color: $secondary-color, $text-color: $white) {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: $bg-color;
+  color: $text-color;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  margin: 0 4px;
+
+  &:hover {
+    background-color: darken($bg-color, 10%);
+  }
+}
+
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
