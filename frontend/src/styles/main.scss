@@ -102,3 +102,11 @@ form {
   color: $text-muted;
   margin-top: 5px;
 }
+.error {
+  color: $danger-color;
+  font-size: 0.9em;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

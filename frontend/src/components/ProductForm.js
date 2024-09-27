@@ -141,7 +141,7 @@ const ProductForm = ({ formData, setFormData, handleSubmit }) => {
         <Link to="/" className="btn btn-secondary">
           Cancel
         </Link>
-        <button type="submit" className="btn btn-primary">
+        <button onClick={handleSubmit} type="submit" className="btn btn-primary">
           Save
         </button>
       </div>

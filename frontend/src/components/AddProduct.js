@@ -16,6 +16,7 @@ const AddProduct = () => {
     width: "",
     length: "",
   });
+  const [error, setError] = useState("");
 
   useEffect(() => {
     document.title = "Add Product";
@@ -23,13 +24,29 @@ const AddProduct = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
+
+    if (!isValidInput()) {
+      setError("Please, submit required data");
+      return;
+    }
 
     try {
       await addProduct(formData);
       navigate("/");
     } catch (error) {
       console.error("Error adding product:", error);
+      if (error.response && error.response.status !== 201) {
+        setError("Please, provide the data of indicated type");
+      } else {
+        setError("An error occurred while adding the product");
+      }
     }
+  };
+
+  const isValidInput = () => {
+    
+    return formData.sku && formData.name && formData.price && formData.type &&(formData.size || formData.weight || (formData.height && formData.width && formData.length)); ;
   };
 
   return (
@@ -42,6 +59,7 @@ const AddProduct = () => {
         setFormData={setFormData}
         handleSubmit={handleSubmit}
       />
+      {error && <div className="error">{error}</div>}
     </div>
   );
 };
